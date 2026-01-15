@@ -18,28 +18,22 @@ public class PagamentoService {
 
     @Transactional
     public Pagamento registrarPagamento(Locacao locacao) {
-        // 1. Verifica se já existe pagamento para evitar duplicidade
+        // 1. Verifica duplicidade
         if (locacao.getPagamento() != null) {
             throw new IllegalArgumentException("Esta locação já foi paga!");
         }
 
         // 2. Cria o pagamento
-        // Ao usar setLocacao, a entidade Pagamento calcula o valor automaticamente
-        // baseada na regra de dias ou preço do livro definida na entidade Locacao.
         Pagamento pagamento = Pagamento.builder()
                 .dataPagamento(LocalDate.now())
                 .locacao(locacao)
                 .build();
 
-        // Força o cálculo do valor caso o Builder não tenha disparado o setter
-        pagamento.setLocacao(locacao);
-
-        // 3. Validação: Só salva se houver valor > 0 (opcional)
-        // Se sua biblioteca cobra 0 reais por empréstimo pontual, pode remover esse if.
-        if (pagamento.getValor() == 0.0) {
-            // Opcional: Decidir se salva recibo de R$ 0,00 ou não.
-            // Geralmente salvamos para ter histórico.
-        }
+        // --- CORREÇÃO AQUI ---
+        // Pegamos o cálculo inteligente da Locacao e setamos no Pagamento
+        Double valorCalculado = locacao.getValorTotal();
+        pagamento.setValor(valorCalculado);
+        // ---------------------
 
         return repository.save(pagamento);
     }

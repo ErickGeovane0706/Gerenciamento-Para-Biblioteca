@@ -25,5 +25,6 @@ public class Pagamento implements Serializable {
     @OneToOne
     @JoinColumn(name = "locacao_id", unique = true)
     @ToString.Exclude // Evita loop
+    @EqualsAndHashCode.Exclude
     private Locacao locacao;
 }

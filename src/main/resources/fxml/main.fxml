@@ -41,10 +41,10 @@
             <Button text="📚 Livros" maxWidth="Infinity" onAction="#abrirTelaLivros"
                     style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent; -fx-border-color: #bdc3c7; -fx-border-width: 0 0 1 0; -fx-cursor: hand;"/>
 
-            <Button text="👥 Leitores" maxWidth="Infinity"
+            <Button text="👥 Leitores" maxWidth="Infinity" onAction="#abrirTelaLeitores"
                     style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent; -fx-border-color: #bdc3c7; -fx-border-width: 0 0 1 0; -fx-cursor: hand;"/>
 
-            <Button text="🔄 Empréstimos" maxWidth="Infinity"
+            <Button text="🔄 Empréstimos" maxWidth="Infinity" onAction="#abrirTelaEmprestimos"
                     style="-fx-alignment: CENTER_LEFT; -fx-background-color: transparent; -fx-border-color: #bdc3c7; -fx-border-width: 0 0 1 0; -fx-cursor: hand;"/>
         </VBox>
     </left>

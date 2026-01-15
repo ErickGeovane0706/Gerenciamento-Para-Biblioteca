@@ -40,6 +40,15 @@ public class MainController {
     public void abrirTelaLivros() {
         carregarTela("/fxml/livros.fxml");
     }
+    @FXML
+    public void abrirTelaLeitores() {
+        // Apontamos para usuarios.fxml pois Leitor = Usuario no seu sistema
+        carregarTela("/fxml/usuarios.fxml");
+    }
+    @FXML
+    public void abrirTelaEmprestimos() {
+        carregarTela("/fxml/emprestimos.fxml");
+    }
 
     // Método genérico para trocar o CENTRO da tela
     private void carregarTela(String caminhoFxml) {
